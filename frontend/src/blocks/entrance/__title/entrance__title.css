@@ -1,0 +1,15 @@
+.entrance__title {
+  margin: 0 0 49px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@media screen and (max-width: 544px) {
+  .entrance__title {
+    margin-bottom: 39px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

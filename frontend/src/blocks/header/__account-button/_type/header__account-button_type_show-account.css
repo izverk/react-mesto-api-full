@@ -1,0 +1,6 @@
+.header__account-button_type_show-account {
+  padding-top: 7px;
+  width: 24px;
+  height: 18px;
+  background: #000 url(../../../../images/show_account_button.svg) 100% 100% no-repeat;
+}

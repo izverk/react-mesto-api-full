@@ -1,0 +1,12 @@
+.header__account-button {
+  display: none;
+  padding: 0;
+  margin-right: 30px;
+  box-sizing: content-box;
+}
+
+@media screen and (max-width: 544px) {
+  .header__account-button {
+    display: block;
+  }
+}

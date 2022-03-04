@@ -1,0 +1,14 @@
+.header__reg-link {
+  padding-top: 6px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 544px) {
+  .header__reg-link {
+    margin-right: 30px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

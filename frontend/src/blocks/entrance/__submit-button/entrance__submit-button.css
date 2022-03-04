@@ -1,0 +1,30 @@
+.entrance__submit-button {
+  margin-top: 186px;
+  margin-bottom: 15px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  background: #fff;
+  color: #000;
+  border-style: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.entrance__submit-button:hover {
+  opacity: 0.85;
+}
+
+@media screen and (max-width: 544px) {
+  .entrance__submit-button {
+    margin-top: 143px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 19px;
+    padding-top: 14.5px;
+    padding-bottom: 14.5px;
+  }
+}

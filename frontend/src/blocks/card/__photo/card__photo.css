@@ -1,0 +1,8 @@
+.card__photo {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+}

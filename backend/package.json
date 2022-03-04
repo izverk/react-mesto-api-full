@@ -1,0 +1,44 @@
+{
+  "name": "express-mesto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/izverk/express-mesto.git"
+  },
+  "keywords": [
+    "server",
+    "express",
+    "mongo",
+    "node.js"
+  ],
+  "author": "Ilya Zverkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/izverk/express-mesto/issues"
+  },
+  "homepage": "https://github.com/izverk/express-mesto#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.1",
+    "celebrate": "^15.0.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.0",
+    "validator": "^13.7.0"
+  }
+}
