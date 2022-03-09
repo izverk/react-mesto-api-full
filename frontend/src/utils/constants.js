@@ -1,7 +1,7 @@
 export const apiConfig = {
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-30/',
   headers: {
-    authorization: 'da681d0f-779e-4fd5-82ae-9312d4a0fb2c',
+    authorization: `Bearer ${localStorage.getItem('token')}`,
     'Content-Type': 'application/json',
   },
 };
