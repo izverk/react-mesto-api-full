@@ -35,19 +35,14 @@ function App() {
   const checkTokenAndLoadContent = useCallback(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      auth
-        .checkToken(token)
-        .then(userData => {
-          setCurrentUser(prevState => {
-            return { ...prevState, _id: userData.data._id, email: userData.data.email };
-          });
-          setLoggedIn(true);
-          history.push('/');
-          getContent();
-        })
-        .catch(err => {
-          console.log(err);
+      auth.checkToken(token).then(userData => {
+        setCurrentUser(prevState => {
+          return { ...prevState, _id: userData.data._id, email: userData.data.email };
         });
+        setLoggedIn(true);
+        history.push('/');
+        getContent();
+      });
     }
   }, [history]);
 
@@ -100,10 +95,10 @@ function App() {
         setRegResult({ isSucces: true, message: 'Вы успешно зарегистрировались!' });
         // показываем тултип с успешной регистрацией
         setIsInfoTooltipOpen(true);
-        // прячем тултип по истечении 2 секунд и авторизуем пользователя
+        // прячем тултип по истечении 2 секунд и перенаправляем пользователя по основному маршруту
         setTimeout(() => {
           setIsInfoTooltipOpen(false);
-          loginUser(password, email);
+          loginUser(password, email); // логиним пользователя
         }, 2000);
       })
       .catch(err => {

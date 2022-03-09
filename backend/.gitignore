@@ -16,3 +16,7 @@ node_modules
 
 # Environment variables
 .env
+
+# статика
+build
+public

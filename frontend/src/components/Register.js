@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import AuthForm from './AuthForm';
 
 // ------------------- Компонент регистрации пользователя -------------------
 
@@ -23,14 +22,34 @@ export default function Register({ onSubmit }) {
   return (
     <div className='entrance'>
       <h2 className='entrance__title'>Регистрация</h2>
+
       <form className={`entrance__form`} name='register' noValidate onSubmit={onRegister}>
-        <AuthForm
-          email={email}
-          handleEmailChange={handleEmailChange}
-          password={password}
-          handlePasswordChange={handlePasswordChange}
+        <input
+          className='entrance__input entrance__input_type_email'
+          type='email'
+          name='email'
+          id='userEmail-input'
+          placeholder='Email'
+          required
+          value={email}
+          onChange={handleEmailChange}
         />
+        <span className='entrance__input-error userEmail-input-error'></span>
+
+        <input
+          className='entrance__input entrance__input_type_password'
+          type='password'
+          name='password'
+          id='userPassword-input'
+          placeholder='Пароль'
+          required
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <span className='entrance__input-error userPassword-input-error'></span>
+
         <button className='entrance__submit-button'>Зарегистрироваться</button>
+
         <Link to='/sign-in' className='entrance__login-link links'>
           Уже зарегистрированы? Войти
         </Link>

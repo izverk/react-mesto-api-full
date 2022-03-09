@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import AuthForm from './AuthForm';
+// import { useFormValidation } from '../utils/utils';
 
 // ------------------- Компонент авторизации пользователя -------------------
 
-export default function Login({ onSubmit }) {
+function Login({ onSubmit }) {
   // Состояния инпутов формы
   const [email, setEmail] = useState('');
-  function handleEmailChange(e) {
+  function handleEmailInputChange(e) {
     setEmail(e.target.value);
   }
   const [password, setPassword] = useState('');
-  function handlePasswordChange(e) {
+  function handlePasswordInputChange(e) {
     setPassword(e.target.value);
   }
+
   // Обработчик отправки формы
   function onLogin(e) {
     e.preventDefault();
@@ -22,15 +23,36 @@ export default function Login({ onSubmit }) {
   return (
     <div className='entrance'>
       <h2 className='entrance__title'>Вход</h2>
+
       <form className={`entrance__form`} name='login' noValidate onSubmit={onLogin}>
-        <AuthForm
-          email={email}
-          handleEmailChange={handleEmailChange}
-          password={password}
-          handlePasswordChange={handlePasswordChange}
+        <input
+          className='entrance__input entrance__input_type_email'
+          type='email'
+          name='email'
+          id='userEmail-input'
+          placeholder='Email'
+          required
+          value={email}
+          onChange={handleEmailInputChange}
         />
+        <span className='entrance__input-error userEmail-input-error'></span>
+
+        <input
+          className='entrance__input entrance__input_type_password'
+          type='password'
+          name='password'
+          id='userPassword-input'
+          placeholder='Пароль'
+          required
+          value={password}
+          onChange={handlePasswordInputChange}
+        />
+        <span className='entrance__input-error userPassword-input-error'></span>
+
         <button className='entrance__submit-button'>Войти</button>
       </form>
     </div>
   );
 }
+
+export default Login;

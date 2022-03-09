@@ -1,3 +1,4 @@
+// const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -9,11 +10,14 @@ const { handleErrors } = require('./middlewares/handleErrors');
 const { login, createUser } = require('./controllers/users');
 const { userCreationJoiScheme } = require('./validation/joiSchemes');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+// // раздача статичных файлов фронтенда
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // роуты, не требующие авторизации (регистрация и вход)
 app.post('/signup', celebrate(userCreationJoiScheme), createUser);
@@ -39,7 +43,7 @@ const main = async () => {
     .catch((err) => { console.log('Ошибка при соединении с БД!:', err); });
 
   app.listen(PORT, () => {
-    console.log(`Запущен порт ${PORT}!`);
+    console.log(`Приложение запущено на порту ${PORT}!`);
   });
 };
 
