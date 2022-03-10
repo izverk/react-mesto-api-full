@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const { celebrate, errors } = require('celebrate');
 const routes = require('./routes/index');
 const { auth } = require('./middlewares/auth');
+const { allowedCors, DEFAULT_ALLOWED_METHODS } = require('./utils/constants');
 const { handleErrors } = require('./middlewares/handleErrors');
 const { login, createUser } = require('./controllers/users');
 const { userCreationJoiScheme } = require('./validation/joiSchemes');
@@ -16,8 +17,26 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-// // раздача статичных файлов фронтенда
-// app.use(express.static(path.join(__dirname, 'public')));
+// CORS
+// обработчик простых CORS-запросов
+app.use((req, res, next) => {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.set('Access-Control-Allow-Origin', origin);
+  }
+  next();
+});
+// обработчик предварительных CORS-запросов
+app.use((req, res, next) => {
+  const { method } = req;
+  const requestHeaders = req.headers['access-control-request-headers'];
+  if (method === 'OPTIONS') {
+    res.set('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    res.set('Access-Control-Allow-Headers', requestHeaders);
+    return res.end();
+  }
+  next();
+});
 
 // роуты, не требующие авторизации (регистрация и вход)
 app.post('/signup', celebrate(userCreationJoiScheme), createUser);

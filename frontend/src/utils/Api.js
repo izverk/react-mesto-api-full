@@ -13,6 +13,15 @@ class Api {
       return Promise.reject(`Ошибка: ${res.status}`);
     }
   }
+
+  // Установка токена в заголовки
+  setTokenHeaders(token) {
+    this._headers = {
+      ...this._headers,
+      'Authorization': `Bearer ${token}`,
+    };
+  }
+
   // Получение профиля пользователя
   getUserInfo() {
     return fetch(`${this._baseUrl}users/me`, {
@@ -68,14 +77,14 @@ class Api {
   }
   // Постановка лайка карточки
   setLike(cardId) {
-    return fetch(`${this._baseUrl}cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers,
     }).then(this._checkResponse);
   }
   // Удаление лайка карточки
   deleteLike(cardId) {
-    return fetch(`${this._baseUrl}cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers,
     }).then(this._checkResponse);

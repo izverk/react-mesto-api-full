@@ -1,3 +1,4 @@
+// сообщения ответов сервера
 const userNotFound = 'Пользователь не найден';
 const cardNotFound = 'Карточка с указанным _id не найдена';
 const incorrectData = 'Переданы некорректные данные';
@@ -18,6 +19,17 @@ const mongoDuplicateKeyErrorCode = 11000;
 // ключ для токена
 const secretKey = 'secret-key-for-token-14sprint';
 
+// массив разрешенных доменов для кросс-доменных запросов
+const allowedCors = [
+  'http://izverk.students.nomoredomains.xyz',
+  'http://localhost:3000',
+  'https://izverk.students.nomoredomains.xyz',
+  'https://localhost:3000',
+];
+
+// список разрешенных методов для кросс-доменных запросов
+const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
 module.exports = {
   userNotFound,
   cardNotFound,
@@ -32,4 +44,6 @@ module.exports = {
   incorrectCardLink,
   incorrectAvatarLink,
   secretKey,
+  allowedCors,
+  DEFAULT_ALLOWED_METHODS,
 };

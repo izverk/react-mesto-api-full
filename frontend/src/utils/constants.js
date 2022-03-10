@@ -1,13 +1,15 @@
 export const apiConfig = {
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-30/',
+  baseUrl: 'http://localhost:3001/',
+  // baseUrl: 'http://izverk.backend.students.nomoredomains.xyz/',
   headers: {
-    authorization: `Bearer ${localStorage.getItem('token')}`,
+    // 'Authorization': `Bearer ${localStorage.getItem('token')}`,
     'Content-Type': 'application/json',
   },
 };
 
 export const authApiConfig = {
-  baseUrl: 'https://auth.nomoreparties.co/',
+  baseUrl: 'http://localhost:3001/',
+  // baseUrl: 'http://izverk.backend.students.nomoredomains.xyz/',
   headers: {
     'Content-Type': 'application/json',
   },

@@ -35,14 +35,20 @@ function App() {
   const checkTokenAndLoadContent = useCallback(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      auth.checkToken(token).then(userData => {
-        setCurrentUser(prevState => {
-          return { ...prevState, _id: userData.data._id, email: userData.data.email };
+      auth
+        .checkToken(token)
+        .then(userData => {
+          setCurrentUser(prevState => {
+            return { ...prevState, _id: userData._id, email: userData.email };
+          });
+          setLoggedIn(true);
+          history.push('/');
+          api.setTokenHeaders(token);
+          getContent();
+        })
+        .catch(err => {
+          console.log(err);
         });
-        setLoggedIn(true);
-        history.push('/');
-        getContent();
-      });
     }
   }, [history]);
 
@@ -95,10 +101,10 @@ function App() {
         setRegResult({ isSucces: true, message: 'Вы успешно зарегистрировались!' });
         // показываем тултип с успешной регистрацией
         setIsInfoTooltipOpen(true);
-        // прячем тултип по истечении 2 секунд и перенаправляем пользователя по основному маршруту
+        // прячем тултип по истечении 2 секунд и авторизуем пользователя
         setTimeout(() => {
           setIsInfoTooltipOpen(false);
-          loginUser(password, email); // логиним пользователя
+          loginUser(password, email);
         }, 2000);
       })
       .catch(err => {
@@ -123,6 +129,7 @@ function App() {
       .then(data => {
         if (data.token) {
           localStorage.setItem('token', data.token);
+          api.setTokenHeaders(data.token);
           checkTokenAndLoadContent();
         } else {
           return;
@@ -186,7 +193,8 @@ function App() {
   // Обработчик клика лайка
   function handleCardLike(card) {
     // проверяем наличие лайка на карточке
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    // const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     // получаем обновлённые данные карточки
     api
       .changeLikeCardStatus(card._id, !isLiked)

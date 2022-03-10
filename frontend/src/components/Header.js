@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import headerLogo from '../images/headerlogo.svg';
 import { Link, Route, Switch } from 'react-router-dom';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import api from '../utils/Api';
 
 function Header({ loggedIn, setLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
@@ -14,6 +15,7 @@ function Header({ loggedIn, setLoggedIn }) {
   // Сброс стейта авторизации пользователя при нажатии кнопки "Выйти"
   function onSignOut() {
     localStorage.removeItem('token');
+    api.setTokenHeaders(null);
     setLoggedIn(false);
   }
 
@@ -41,9 +43,8 @@ function Header({ loggedIn, setLoggedIn }) {
       {loggedIn && (
         <>
           <div
-            className={`header__account-container${
-              !isAccountHidden ? ' header__account-container_on' : ''
-            }`}
+            className={`header__account-container${!isAccountHidden ? ' header__account-container_on' : ''
+              }`}
           >
             <span className='header__account-email'>{currentUser.email}</span>
             <button type='button' onClick={onSignOut} className='header__account-exit-button buttons'>
@@ -53,11 +54,10 @@ function Header({ loggedIn, setLoggedIn }) {
           <button //кнопка отображения/скрытия аккаунта (email) для мобильной версии
             type='button'
             onClick={handleIsAccountHiddenChange}
-            className={`header__account-button buttons${
-              isAccountHidden
+            className={`header__account-button buttons${isAccountHidden
                 ? ' header__account-button_type_show-account'
                 : ' header__account-button_type_hide-account'
-            }`}
+              }`}
           ></button>
         </>
       )}
