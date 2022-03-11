@@ -6,7 +6,7 @@
 `backend/`, фронтенд - в `frontend/`.
 
 Ссылка на сайт, размещенный на Яндекс.Облаке -
-https://izverk.github.io/express-mesto/
+http://izverk.students.nomoredomains.xyz/
 
 ## Что за проект и о чем он
 
