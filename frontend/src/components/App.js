@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 import Header from './Header';
 import MainContent from './MainContent';
@@ -15,7 +15,7 @@ import api from '../utils/Api';
 import auth from '../utils/Auth';
 import { useClosePopupByEscape } from '../utils/utils';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import { useEffect } from 'react/cjs/react.development';
+// import { useEffect } from 'react/cjs/react.development';
 
 function App() {
   // ======================================= ТЕКУЩИЙ ПОЛЬЗОВАТЕЛЬ и АВАТАР ============================================
