@@ -1,6 +1,8 @@
 export const apiConfig = {
   // baseUrl: 'http://localhost:3001/',
-  baseUrl: 'http://izverk.backend.students.nomoredomains.xyz/',
+  // baseUrl: 'http://51.250.30.238/',
+  // baseUrl: 'http://izverk.backend.students.nomoredomains.xyz/',
+  baseUrl: 'https://izverk.backend.students.nomoredomains.xyz/',
   headers: {
     // 'Authorization': `Bearer ${localStorage.getItem('token')}`,
     'Content-Type': 'application/json',
@@ -9,7 +11,9 @@ export const apiConfig = {
 
 export const authApiConfig = {
   // baseUrl: 'http://localhost:3001/',
-  baseUrl: 'http://izverk.backend.students.nomoredomains.xyz/',
+  // baseUrl: 'http://51.250.30.238/',
+  // baseUrl: 'http://izverk.backend.students.nomoredomains.xyz/',
+  baseUrl: 'https://izverk.backend.students.nomoredomains.xyz/',
   headers: {
     'Content-Type': 'application/json',
   },
