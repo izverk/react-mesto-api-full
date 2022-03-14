@@ -25,6 +25,13 @@ app.use(simpleCorsHandler);
 // обработчик предварительных CORS-запросов
 app.use(preflightCorsHandler);
 
+// код для краш-теста
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // роуты, не требующие авторизации (регистрация и вход)
 app.post('/signup', celebrate(userCreationJoiScheme), createUser);
 app.post('/signin', celebrate(userCreationJoiScheme), login);

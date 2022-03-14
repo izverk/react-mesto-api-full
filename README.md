@@ -5,8 +5,9 @@
 операции с карточками и пользователями. Бэкенд расположен в директории
 `backend/`, фронтенд - в `frontend/`.
 
-Ссылка на сайт, размещенный на Яндекс.Облаке -
-http://izverk.students.nomoredomains.xyz/
+Ссылка на сайт, размещенный на Яндекс.Облаке (IP: 51.250.30.238): фронтенд -
+https://izverk.students.nomoredomains.xyz/; бэкенд -
+https://izverk.backend.students.nomoredomains.xyz/
 
 ## Что за проект и о чем он
 
