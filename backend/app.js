@@ -1,8 +1,7 @@
-// const path = require('path');
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-// const cookieParser = require('cookie-parser');
 const { celebrate, errors } = require('celebrate');
 const routes = require('./routes/index');
 const { auth } = require('./middlewares/auth');
@@ -16,7 +15,6 @@ const { PORT = 3001 } = process.env;
 const app = express();
 
 app.use(bodyParser.json());
-// app.use(cookieParser());
 
 // логгер запросов
 app.use(requestLogger);
