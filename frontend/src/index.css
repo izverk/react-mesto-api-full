@@ -53,9 +53,12 @@
 
 @import url(./blocks/gallery/gallery.css);
 @import url(./blocks/gallery/__list/gallery__list.css);
+
 @import url(./blocks/card/card.css);
 @import url(./blocks/card/__photo-container/card__photo-container.css);
+@import url(./blocks/card/__photo-wrapper/card__photo-wrapper.css);
 @import url(./blocks/card/__photo/card__photo.css);
+@import url(./blocks/card/__name-container/card__name-container.css);
 @import url(./blocks/card/__name/card__name.css);
 @import url(./blocks/card/__like-container/card__like-container.css);
 @import url(./blocks/card/__like/card__like.css);

@@ -31,17 +31,21 @@ function Card({ card, onCardClick, onCardLike, initConfirmedAction }) {
 
   return (
     <li className='card'>
-      <h2 className='card__name'>{card.name}</h2>
       <div className='card__photo-container'>
-        <img className='card__photo' src={card.link} alt={card.name} onClick={handleClick} />
+        <div className='card__photo-wrapper'>
+          <img className='card__photo' src={card.link} alt={card.name} onClick={handleClick} />
+        </div>
       </div>
-      <div className='card__like-container'>
-        <button
-          type='button'
-          className={cardLikeButtonClassName}
-          onClick={handleLikeClick}
-        ></button>
-        <span className='card__like-number'>{card.likes.length}</span>
+      <div className='card__name-container'>
+        <h2 className='card__name'>{card.name}</h2>
+        <div className='card__like-container'>
+          <button
+            type='button'
+            className={cardLikeButtonClassName}
+            onClick={handleLikeClick}
+          ></button>
+          <span className='card__like-number'>{card.likes.length}</span>
+        </div>
       </div>
       <button
         type='button'
